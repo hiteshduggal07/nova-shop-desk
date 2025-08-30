@@ -4,6 +4,7 @@ import { ArrowRight, Star, ShoppingBag, Truck, Shield, HeadphonesIcon } from 'lu
 import { mockProducts, categories } from '@/data/products';
 import { useStore } from '@/contexts/StoreContext';
 import { ProductCard } from '@/components/ProductCard';
+import { AIAgentDemo } from '@/components/AIAgentDemo';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import heroImage from '@/assets/hero-image.jpg';
@@ -54,6 +55,13 @@ export default function Home() {
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* AI Agent Demo Section */}
+      <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AIAgentDemo />
         </div>
       </section>
 

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { StoreProvider } from "@/contexts/StoreContext";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { AIAgent } from "@/components/AIAgent";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
@@ -37,6 +38,7 @@ const App = () => (
               </Routes>
             </main>
             <Footer />
+            <AIAgent />
           </div>
         </BrowserRouter>
       </StoreProvider>
