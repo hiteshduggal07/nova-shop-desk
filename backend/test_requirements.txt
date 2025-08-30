@@ -1,0 +1,8 @@
+# Testing dependencies for AI Website Navigator Backend
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+pytest-xdist==3.5.0
+httpx==0.25.2
+psutil==5.9.6

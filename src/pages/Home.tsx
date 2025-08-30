@@ -48,7 +48,15 @@ export default function Home() {
                   Shop Now
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-white text-blue-500 hover:bg-white hover:text-primary"
+                onClick={() => {
+                  const featuresSection = document.getElementById('features');
+                  featuresSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Learn More
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
@@ -58,8 +66,16 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section className="py-16 bg-muted/50">
+      <section id="features" className="py-16 bg-muted/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+              Why Choose NovaShop?
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              We're committed to providing you with the best shopping experience
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
