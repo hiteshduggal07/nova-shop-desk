@@ -18,18 +18,116 @@ export default function Products() {
       // In a real app, you'd dispatch SET_PRODUCTS action
       // For now, we'll work with the mockProducts directly
     }
-  }, []);
+  }, [state.products]);
+
+  // Enhanced search function that handles singular/plural and similar word forms
+  const searchProducts = (query: string, products: typeof mockProducts) => {
+    if (!query.trim()) return products;
+    
+    const searchTerm = query.toLowerCase().trim();
+    const searchWords = searchTerm.split(/\s+/);
+    
+    return products.filter(product => {
+      const productText = [
+        product.name.toLowerCase(),
+        product.category.toLowerCase(),
+        product.description.toLowerCase(),
+        ...product.features.map(f => f.toLowerCase())
+      ].join(' ');
+      
+      // Check if any search word matches the product
+      return searchWords.some(word => {
+        // Exact match
+        if (productText.includes(word)) return true;
+        
+        // Handle singular/plural variations
+        const singularForms = getSingularForms(word);
+        const pluralForms = getPluralForms(word);
+        
+        // Check singular forms
+        if (singularForms.some(form => productText.includes(form))) return true;
+        
+        // Check plural forms  
+        if (pluralForms.some(form => productText.includes(form))) return true;
+        
+        // Handle common abbreviations and variations
+        const variations = getWordVariations(word);
+        if (variations.some(variation => productText.includes(variation))) return true;
+        
+        return false;
+      });
+    });
+  };
+
+  // Helper function to get singular forms of a word
+  const getSingularForms = (word: string): string[] => {
+    const forms = [word];
+    
+    // Common plural to singular rules
+    if (word.endsWith('ies')) {
+      forms.push(word.slice(0, -3) + 'y'); // categories -> category
+    }
+    if (word.endsWith('s')) {
+      forms.push(word.slice(0, -1)); // shirts -> shirt
+    }
+    if (word.endsWith('es')) {
+      forms.push(word.slice(0, -2)); // shoes -> shoe
+    }
+    
+    return forms;
+  };
+
+  // Helper function to get plural forms of a word
+  const getPluralForms = (word: string): string[] => {
+    const forms = [word];
+    
+    // Common singular to plural rules
+    if (word.endsWith('y')) {
+      forms.push(word.slice(0, -1) + 'ies'); // category -> categories
+    }
+    if (!word.endsWith('s')) {
+      forms.push(word + 's'); // shirt -> shirts
+    }
+    if (word.endsWith('e')) {
+      forms.push(word + 's'); // shoe -> shoes
+    }
+    
+    return forms;
+  };
+
+  // Helper function to get word variations and abbreviations
+  const getWordVariations = (word: string): string[] => {
+    const variations = [word];
+    
+    // Common abbreviations
+    if (word === 'tv' || word === 'television') {
+      variations.push('tv', 'television');
+    }
+    if (word === 'phone' || word === 'smartphone') {
+      variations.push('phone', 'smartphone', 'mobile');
+    }
+    if (word === 'laptop' || word === 'computer') {
+      variations.push('laptop', 'computer', 'pc');
+    }
+    if (word === 'headphones' || word === 'earphones') {
+      variations.push('headphones', 'earphones', 'earbuds');
+    }
+    
+    // Handle common word endings
+    if (word.endsWith('ing')) {
+      variations.push(word.slice(0, -3)); // running -> run
+    }
+    
+    return variations;
+  };
 
   // Filter products based on current filters
   const filteredProducts = useMemo(() => {
     let filtered = mockProducts;
 
-    // Search filter
+    // Enhanced search filter
     if (state.searchQuery) {
-      filtered = filtered.filter(product =>
-        product.name.toLowerCase().includes(state.searchQuery.toLowerCase()) ||
-        product.category.toLowerCase().includes(state.searchQuery.toLowerCase())
-      );
+      filtered = searchProducts(state.searchQuery, filtered);
     }
 
     // Category filter
@@ -199,6 +297,23 @@ export default function Products() {
 
         {/* Products Grid */}
         <div className="flex-1">
+          {/* Search Results Info */}
+          {state.searchQuery && (
+            <div className="mb-6 p-4 bg-muted/30 rounded-lg">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-medium">
+                  Search Results for "{state.searchQuery}"
+                </h3>
+                <Badge variant="secondary">
+                  {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} found
+                </Badge>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                💡 Try searching for similar terms: "shirt" vs "shirts", "shoe" vs "shoes", or "phone" vs "smartphone"
+              </p>
+            </div>
+          )}
+
           {filteredProducts.length > 0 ? (
             <div className="product-grid">
               {filteredProducts.map((product) => (
@@ -210,6 +325,18 @@ export default function Products() {
               <p className="text-muted-foreground text-lg mb-4">
                 No products found matching your criteria.
               </p>
+              {state.searchQuery && (
+                <div className="mb-4 p-4 bg-muted/30 rounded-lg max-w-md mx-auto">
+                  <p className="text-sm text-muted-foreground mb-2">
+                    💡 Search tips:
+                  </p>
+                  <ul className="text-sm text-muted-foreground text-left space-y-1">
+                    <li>• Try singular/plural variations (e.g., "shirt" vs "shirts")</li>
+                    <li>• Use common abbreviations (e.g., "tv" or "phone")</li>
+                    <li>• Search by category or product type</li>
+                  </ul>
+                </div>
+              )}
               <Button onClick={clearFilters}>Clear Filters</Button>
             </div>
           )}

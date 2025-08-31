@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Loader2, Send, X, Bot, History, AlertCircle } from 'lucide-react';
 import { useNavigator } from './useNavigator';
 import { cn } from '@/lib/utils';
+import { SaturnIcon } from './SaturnIcon';
 
 interface CommandBarProps {
   className?: string;
@@ -90,8 +91,8 @@ export function CommandBar({ className, apiEndpoint }: CommandBarProps) {
           size="lg"
           className="rounded-full shadow-lg hover:shadow-xl transition-all duration-200 bg-primary hover:bg-primary/90"
         >
-          <Bot className="w-5 h-5 mr-2" />
-          AI Assistant
+          <SaturnIcon className="w-5 h-5 mr-2" />
+          Orbit.ai
         </Button>
       </div>
     );
@@ -104,8 +105,8 @@ export function CommandBar({ className, apiEndpoint }: CommandBarProps) {
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b bg-muted/50">
             <div className="flex items-center gap-2">
-              <Bot className="w-5 h-5 text-primary" />
-              <h2 className="font-semibold">AI Website Navigator</h2>
+              <SaturnIcon className="w-5 h-5 text-primary" />
+              <h2 className="font-semibold">Orbit.ai</h2>
               {isProcessing && (
                 <Badge variant="secondary" className="ml-2">
                   <Loader2 className="w-3 h-3 mr-1 animate-spin" />
@@ -175,7 +176,7 @@ export function CommandBar({ className, apiEndpoint }: CommandBarProps) {
             {lastAction?.action === 'DONE' && lastAction.summary && (
               <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded-lg">
                 <div className="flex items-center gap-2 text-green-700">
-                  <Bot className="w-4 h-4" />
+                  <SaturnIcon className="w-4 h-4" />
                   <span className="text-sm font-medium">Completed</span>
                 </div>
                 <p className="text-sm text-green-700/80 mt-1">{lastAction.summary}</p>

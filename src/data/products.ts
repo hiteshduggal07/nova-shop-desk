@@ -79,19 +79,6 @@ export const mockProducts: Product[] = [
     inStock: true,
   },
   {
-    id: '7',
-    name: 'Denim Jacket',
-    price: 89,
-    originalPrice: 119,
-    image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400',
-    category: 'Clothing',
-    rating: 4.6,
-    reviewCount: 456,
-    description: 'Classic denim jacket with modern fit and premium construction.',
-    features: ['Premium denim', 'Classic fit', 'Button closure', 'Multiple pockets'],
-    inStock: true,
-  },
-  {
     id: '8',
     name: 'Running Shoes',
     price: 129,
@@ -103,33 +90,8 @@ export const mockProducts: Product[] = [
     features: ['Breathable mesh', 'Cushioned sole', 'Lightweight', 'Durable outsole'],
     inStock: true,
   },
-  {
-    id: '9',
-    name: 'Winter Coat',
-    price: 199,
-    originalPrice: 279,
-    image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400',
-    category: 'Clothing',
-    rating: 4.7,
-    reviewCount: 723,
-    description: 'Warm and stylish winter coat perfect for cold weather.',
-    features: ['Water resistant', 'Insulated', 'Hood included', 'Multiple pockets'],
-    inStock: true,
-  },
 
   // Accessories
-  {
-    id: '10',
-    name: 'Leather Wallet',
-    price: 59,
-    image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400',
-    category: 'Accessories',
-    rating: 4.6,
-    reviewCount: 567,
-    description: 'Premium leather wallet with RFID protection and elegant design.',
-    features: ['Genuine leather', 'RFID blocking', '8 card slots', 'Slim profile'],
-    inStock: true,
-  },
   {
     id: '11',
     name: 'Smart Watch',
@@ -181,44 +143,9 @@ export const mockProducts: Product[] = [
     features: ['12-cup capacity', 'Programmable', 'Auto shut-off', 'Easy clean'],
     inStock: true,
   },
-  {
-    id: '15',
-    name: 'Desk Lamp',
-    price: 45,
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
-    category: 'Home & Garden',
-    rating: 4.3,
-    reviewCount: 423,
-    description: 'Modern LED desk lamp with adjustable brightness and USB charging.',
-    features: ['LED lighting', 'USB charging port', 'Adjustable arm', 'Touch control'],
-    inStock: true,
-  },
+
 
   // Sports & Outdoors
-  {
-    id: '16',
-    name: 'Yoga Mat',
-    price: 39,
-    image: 'https://images.unsplash.com/photo-1506629905607-54d2c5f81251?w=400',
-    category: 'Sports & Outdoors',
-    rating: 4.5,
-    reviewCount: 1234,
-    description: 'Premium yoga mat with excellent grip and cushioning for your practice.',
-    features: ['Non-slip surface', 'Extra thick', 'Eco-friendly', 'Carrying strap'],
-    inStock: true,
-  },
-  {
-    id: '17',
-    name: 'Tennis Racket',
-    price: 159,
-    image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400',
-    category: 'Sports & Outdoors',
-    rating: 4.7,
-    reviewCount: 456,
-    description: 'Professional tennis racket designed for power and precision.',
-    features: ['Graphite frame', 'Oversize head', 'Vibration dampening', 'Professional grip'],
-    inStock: true,
-  },
 
   // Books
   {
@@ -231,18 +158,6 @@ export const mockProducts: Product[] = [
     reviewCount: 2341,
     description: 'Gripping bestseller novel that will keep you turning pages.',
     features: ['Hardcover edition', '400+ pages', 'Award winner', 'New release'],
-    inStock: true,
-  },
-  {
-    id: '19',
-    name: 'Cookbook',
-    price: 32,
-    image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400',
-    category: 'Books',
-    rating: 4.6,
-    reviewCount: 567,
-    description: 'Collection of delicious recipes from around the world.',
-    features: ['200+ recipes', 'Full-color photos', 'Step-by-step', 'Professional tips'],
     inStock: true,
   },
 
@@ -274,18 +189,161 @@ export const mockProducts: Product[] = [
   },
 
   // Toys & Games
+
+  // Additional Electronics
   {
-    id: '22',
-    name: 'Board Game',
-    price: 45,
-    image: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400',
-    category: 'Toys & Games',
-    rating: 4.6,
-    reviewCount: 734,
-    description: 'Strategy board game perfect for family game nights.',
-    features: ['2-4 players', 'Ages 10+', '60-minute gameplay', 'Award winning'],
+    id: '23',
+    name: 'Bluetooth Speaker',
+    price: 129,
+    originalPrice: 179,
+    image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400',
+    category: 'Electronics',
+    rating: 4.5,
+    reviewCount: 892,
+    description: 'Portable Bluetooth speaker with 360-degree sound and waterproof design.',
+    features: ['360° sound', 'Waterproof', '20-hour battery', 'Party mode'],
     inStock: true,
   },
+  {
+    id: '24',
+    name: 'Tablet Pro',
+    price: 599,
+    image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400',
+    category: 'Electronics',
+    rating: 4.7,
+    reviewCount: 445,
+    description: 'Professional tablet with high-resolution display and powerful performance.',
+    features: ['10.9" Retina display', 'A14 chip', '128GB storage', 'Apple Pencil support'],
+    inStock: true,
+  },
+
+
+  // Additional Clothing
+  {
+    id: '26',
+    name: 'Casual Dress',
+    price: 69,
+    image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400',
+    category: 'Clothing',
+    rating: 4.5,
+    reviewCount: 567,
+    description: 'Elegant casual dress perfect for any occasion.',
+    features: ['Breathable fabric', 'Adjustable fit', 'Machine washable', 'Multiple sizes'],
+    inStock: true,
+  },
+  {
+    id: '27',
+    name: 'Athletic Shorts',
+    price: 39,
+    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400',
+    category: 'Clothing',
+    rating: 4.4,
+    reviewCount: 789,
+    description: 'Comfortable athletic shorts for workouts and sports.',
+    features: ['Moisture wicking', 'Elastic waist', 'Side pockets', 'Quick dry'],
+    inStock: true,
+  },
+  {
+    id: '28',
+    name: 'Formal Shirt',
+    price: 79,
+    image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400',
+    category: 'Clothing',
+    rating: 4.6,
+    reviewCount: 456,
+    description: 'Professional formal shirt for business and formal occasions.',
+    features: ['Wrinkle resistant', 'Breathable cotton', 'Classic fit', 'Multiple colors'],
+    inStock: true,
+  },
+
+  // Additional Accessories
+  {
+    id: '29',
+    name: 'Jewelry Set',
+    price: 89,
+    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400',
+    category: 'Accessories',
+    rating: 4.5,
+    reviewCount: 456,
+    description: 'Elegant jewelry set perfect for special occasions.',
+    features: ['Sterling silver', 'Gemstone accents', 'Matching set', 'Gift box included'],
+    inStock: true,
+  },
+
+
+  // Additional Home & Garden
+  {
+    id: '31',
+    name: 'Throw Pillows',
+    price: 29,
+    image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400',
+    category: 'Home & Garden',
+    rating: 4.4,
+    reviewCount: 567,
+    description: 'Decorative throw pillows to enhance your living space.',
+    features: ['Soft fabric', 'Multiple colors', 'Removable cover', 'Machine washable'],
+    inStock: true,
+  },
+
+
+  // Additional Sports & Outdoors
+  {
+    id: '33',
+    name: 'Bicycle',
+    price: 399,
+    image: 'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=400',
+    category: 'Sports & Outdoors',
+    rating: 4.6,
+    reviewCount: 234,
+    description: 'Mountain bike perfect for outdoor adventures.',
+    features: ['21-speed', 'Aluminum frame', 'Disc brakes', 'Suspension fork'],
+    inStock: true,
+  },
+
+
+  // Additional Books
+  {
+    id: '36',
+    name: 'Science Fiction',
+    price: 22,
+    image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400',
+    category: 'Books',
+    rating: 4.7,
+    reviewCount: 456,
+    description: 'Imaginative science fiction novel set in the future.',
+    features: ['Hardcover', '350+ pages', 'Award winning', 'Series book 1'],
+    inStock: true,
+  },
+
+  // Additional Beauty & Health
+
+  {
+    id: '38',
+    name: 'Makeup Palette',
+    price: 59,
+    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400',
+    category: 'Beauty & Health',
+    rating: 4.6,
+    reviewCount: 456,
+    description: 'Professional makeup palette with 18 eyeshadow colors.',
+    features: ['18 colors', 'Matte & shimmer', 'Long lasting', 'Travel friendly'],
+    inStock: true,
+  },
+
+  // Additional Toys & Games
+  {
+    id: '39',
+    name: 'LEGO Set',
+    price: 79,
+    image: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400',
+    category: 'Toys & Games',
+    rating: 4.8,
+    reviewCount: 567,
+    description: 'Creative LEGO building set for endless fun.',
+    features: ['500+ pieces', 'Ages 8+', 'Instruction manual', 'Display model'],
+    inStock: true,
+  },
+
 ];
 
 export const categories = [
